@@ -1,0 +1,12 @@
+#!/bin/env bash
+
+# Add custom host mappings
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+
+# Extracting IPv4 addresses from ifconfig output
+ipv4_addresses=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*')
+
+# Displaying the extracted IPv4 addresses
+echo "Active IPv4 Addresses:"
+echo "$ipv4_addresses"
