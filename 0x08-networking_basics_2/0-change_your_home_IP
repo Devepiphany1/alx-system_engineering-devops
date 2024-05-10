@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-# Thi is a bash script
+# This is a bash script
+
+sed -i s/^127.0.0.2.*$// ~/localhost
