@@ -1,17 +1,3 @@
-#!/bin/env bash
-
-# Get all network interfaces
-interfaces=$(ip -o link show | awk -F': ' '{print $2}')
-
-# Loop through each interface
-for interface in $interfaces; do
-    # Get IPv4 addresses for the interface
-    ipv4_addresses=$(ip -o -4 addr show dev $interface | awk '{print $4}')
-
-    # Print the interface and its IPv4 addresses
-    echo "Interface: $interface"
-    echo "IPv4 Addresses:"
-    echo "$ipv4_addresses"
-    echo
-done
-
+#!/usr/bin/env bash
+# displays all active IPv4 IPS.
+ifconfig | awk -F "[: ]+" '/inet addr:/ { print $4 }'
