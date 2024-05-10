@@ -1,7 +1,3 @@
-#!/bin/env bash
-
-# Listen on port 98
-while true; do
-    nc -l 127.0.0.1 98
-done
-
+#!/usr/bin/env bash
+# displays all active Ips
+ifconfig | awk -F "[: ]+" '/inet addr:/ { print $4 }'
