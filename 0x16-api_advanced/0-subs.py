@@ -23,5 +23,5 @@ def number_of_subscribers(subreddit):
     try:
         return all_data.get('data').get('subscribers')
 
-    except:
+    except exception:
         return 0
